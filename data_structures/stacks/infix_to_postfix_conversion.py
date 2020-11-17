@@ -1,6 +1,6 @@
 import string
 
-from .stack import Stack
+from stack import Stack
 
 __author__ = "Omkar Pathak"
 
