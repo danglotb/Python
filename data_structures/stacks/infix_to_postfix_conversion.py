@@ -59,9 +59,9 @@ def infix_to_postfix(expression_str: str) -> str:
 
 
 if __name__ == "__main__":
-    from doctest import testmod
+    #from doctest import testmod
 
-    testmod()
+    #testmod()
     expression = "a+b*(c^d-e)^(f+g*h)-i"
 
     print("Infix to Postfix Notation demonstration:\n")
