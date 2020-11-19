@@ -1,6 +1,8 @@
 import string
 
-from stack import Stack
+from .stack import Stack
+from green_tracer import green_tracer2
+import sys
 
 __author__ = "Omkar Pathak"
 
@@ -52,8 +54,12 @@ def infix_to_postfix(expression):
 
 
 if __name__ == "__main__":
+    tracer = green_tracer2.GreenTracer2('/home/benjamin/workspace/green-tracer/experiments/pilot_11_2020/output/traces_0_v2')
+    sys.settrace(tracer.traceit)
     expression = "a+b*(c^d-e)^(f+g*h)-i"
 
     print("Infix to Postfix Notation demonstration:\n")
     print("Infix notation: " + expression)
     print("Postfix notation: " + infix_to_postfix(expression))
+    sys.settrace(None)
+    tracer.close()
