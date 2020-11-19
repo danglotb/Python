@@ -4,8 +4,10 @@ https://en.wikipedia.org/wiki/Reverse_Polish_notation
 https://en.wikipedia.org/wiki/Shunting-yard_algorithm
 """
 
-from balanced_parentheses import balanced_parentheses
-from stack import Stack
+from .balanced_parentheses import balanced_parentheses
+from .stack import Stack
+from green_tracer import green_tracer2
+import sys
 
 
 def precedence(char: str) -> int:
@@ -59,6 +61,8 @@ def infix_to_postfix(expression_str: str) -> str:
 
 
 if __name__ == "__main__":
+    tracer = green_tracer2.GreenTracer2('/home/benjamin/workspace/green-tracer/experiments/pilot_11_2020/output/traces_1_v2')
+    sys.settrace(tracer.traceit)
     #from doctest import testmod
 
     #testmod()
@@ -67,3 +71,5 @@ if __name__ == "__main__":
     print("Infix to Postfix Notation demonstration:\n")
     print("Infix notation: " + expression)
     print("Postfix notation: " + infix_to_postfix(expression))
+    sys.settrace(None)
+    tracer.close()
